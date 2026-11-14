@@ -50,8 +50,8 @@
                   <!-- paso 1: formulario de confirmación -->
                   <div class="capa formulario" :class="{ ver: paso === 1 }">
                     <p class="app-titulo">Confirmar asistencia</p>
-                    <label>Nombre completo<span class="campo escribe">Laura Gómez</span></label>
-                    <label>Teléfono<span class="campo escribe e2">300 000 0000</span></label>
+                    <label>Nombre completo<span class="campo"><span class="escribe">Laura Gómez</span></span></label>
+                    <label>Teléfono<span class="campo"><span class="escribe e2">300 000 0000</span></span></label>
                     <div class="opciones"><span class="opcion si">¡Sí, asistiré!</span><span class="opcion">No puedo</span></div>
                     <div class="pases"><span>1</span><span class="activo">2</span><span>3</span></div>
                     <span class="enviar">Enviar ✓</span>
@@ -102,7 +102,7 @@
                   <!-- paso 1: subir fotos -->
                   <div class="capa subir" :class="{ ver: paso === 1 }">
                     <p class="app-titulo">Comparte tus recuerdos</p>
-                    <label>Tu nombre<span class="campo escribe">Tía Carmen</span></label>
+                    <label>Tu nombre<span class="campo"><span class="escribe">Tía Carmen</span></span></label>
                     <div class="miniaturas">
                       <span v-for="(f, i) in FOTOS.slice(0, 3)" :key="i" class="mini" :style="{ background: f.fondo, animationDelay: `${0.4 + i * 0.35}s` }">{{ f.icono }}</span>
                     </div>
@@ -127,7 +127,7 @@
                   <div class="moderacion">
                     <div v-for="(f, i) in FOTOS.slice(0, 3)" :key="i" class="foto-mod" :class="{ aprobada: paso >= 2 && i === 0 }">
                       <span class="foto" :style="{ background: f.fondo }">{{ f.icono }}</span>
-                      <span class="acciones-mod"><b>✓ Aprobar</b><i>✕</i></span>
+                      <span class="acciones-mod"><b>✓<span class="palabra"> Aprobar</span></b><i>✕</i></span>
                     </div>
                   </div>
                   <div class="dedo d-aprobar" :class="{ ver: paso === 2 }"></div>
@@ -242,10 +242,13 @@ const QR = (() => {
   let s = '<svg viewBox="0 0 21 21" shape-rendering="crispEdges"><rect width="21" height="21" fill="#fff"/>';
   const ojo = (x: number, y: number) => `<path fill="#071a2e" d="M${x} ${y}h7v7h-7zM${x + 1} ${y + 1}v5h5v-5zM${x + 2} ${y + 2}h3v3h-3z" fill-rule="evenodd"/>`;
   s += ojo(0, 0) + ojo(14, 0) + ojo(0, 14);
-  for (let i = 0; i < 160; i++) {
-    const x = (i * 7 + 3) % 21, y = (i * 13 + 5) % 21;
-    const enOjo = (x < 8 && y < 8) || (x > 12 && y < 8) || (x < 8 && y > 12);
-    if (!enOjo && (i * 31) % 3 !== 0) s += `<rect x="${x}" y="${y}" width="1" height="1" fill="#071a2e"/>`;
+  /* módulos repartidos por toda la grilla, fuera de los tres "ojos" */
+  for (let y = 0; y < 21; y++) {
+    for (let x = 0; x < 21; x++) {
+      const enOjo = (x < 8 && y < 8) || (x > 12 && y < 8) || (x < 8 && y > 12);
+      const h = ((x * 73856093) ^ (y * 19349663) ^ (x * y * 83492791)) >>> 0;
+      if (!enOjo && h % 7 < 3) s += `<rect x="${x}" y="${y}" width="1" height="1" fill="#071a2e"/>`;
+    }
   }
   return s + "</svg>";
 })();
@@ -491,6 +494,10 @@ onBeforeUnmount(() => {
 }
 
 /* efecto de "escribiendo" */
+.escribe {
+  display: inline-block;
+}
+
 .ver .escribe {
   animation: escribir 1.2s steps(14) 0.3s both;
 }
@@ -1229,6 +1236,24 @@ li:not(.actual) .textos small {
   }
   .ventana {
     font-size: 11px;
+  }
+  .acciones-mod .palabra {
+    display: none;
+  }
+  .acciones-mod b {
+    padding: 2px 8px;
+  }
+  .opcion {
+    padding: 5px 3px;
+    font-size: 9.5px;
+  }
+  .qr-pie {
+    width: 26px;
+    right: 6px;
+    bottom: 6px;
+  }
+  .pantalla-evento .destacada small {
+    font-size: 9px;
   }
   .pasos li:not(.actual) button {
     padding-block: 8px 10px;

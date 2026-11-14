@@ -316,14 +316,21 @@ usarProgresoPista(pistaRef);
     white-space: nowrap;
   }
   .abanico-celular {
-    --w: max(88px, min(clamp(104px, 30vw, 140px), (100cqh - 40px) / 2.45));
+    --w: max(80px, min(clamp(84px, 27vw, 140px), (100cqh - 40px) / 2.45));
     transform:
       translateX(calc(-50% + var(--d) * (30% + var(--pe) * 40%)))
       translateY(calc(var(--da) * (1 - var(--pe)) * 9%))
       rotate(calc(var(--d) * (1 - var(--pe)) * 11deg));
   }
+  /* en celular los celulares quedan montados: los nombres se cruzarían */
   .nombre-tipo {
-    font-size: 0.78rem;
+    display: none;
+  }
+}
+
+@media (max-width: 370px) {
+  .acciones .boton-secundario {
+    display: none;
   }
 }
 
