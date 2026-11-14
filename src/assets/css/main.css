@@ -1,0 +1,229 @@
+/*
+  INNUBE: noche azul marino con brillos cian, como el logo (nube + subir).
+  Reglas: en una misma regla no se mezcla transform con translate/scale/rotate
+  (el minificador los junta); se animan solo transformaciones y opacidad.
+*/
+:root {
+  --noche: #071a2e;
+  --noche-2: #0b2742;
+  --azul: #1e3b5d;
+  --cian: #18d9e7;
+  --cian-claro: #7ff1fa;
+  --cian-suave: rgba(24, 217, 231, 0.14);
+  --blanco: #f4fbff;
+  --texto: #cfe3f1;
+  --texto-suave: #8aa6bf;
+  --borde: rgba(127, 241, 250, 0.16);
+  --tarjeta: rgba(16, 44, 72, 0.55);
+
+  --fuente-titulo: "Poppins", system-ui, sans-serif;
+  --fuente-texto: "DM Sans", system-ui, sans-serif;
+
+  --ancho: 1180px;
+  --espacio-seccion: clamp(80px, 12vw, 140px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--noche);
+  color: var(--texto);
+  font-family: var(--fuente-texto);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--cian);
+  color: var(--noche);
+}
+
+.contenedor {
+  width: min(100% - 40px, var(--ancho));
+  margin-inline: auto;
+}
+
+.seccion {
+  position: relative;
+  padding: var(--espacio-seccion) 0;
+}
+
+/* encabezado de sección */
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 6px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: var(--cian-suave);
+  color: var(--cian-claro);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.titulo {
+  margin: 0 0 16px;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2rem, 5.2vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--blanco);
+  text-wrap: balance;
+}
+
+/* palabra resaltada con el degradado del logo */
+.brillo {
+  background: linear-gradient(100deg, var(--cian-claro), var(--cian) 45%, #4aa8ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.entrada {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(1.02rem, 1.6vw, 1.15rem);
+  color: var(--texto-suave);
+  text-wrap: pretty;
+}
+
+.cabecera-seccion {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.cabecera-seccion .entrada {
+  margin-inline: auto;
+}
+
+/* BOTONES */
+.boton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 26px;
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--fuente-titulo);
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.boton svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.boton-principal {
+  background: linear-gradient(135deg, var(--cian-claro), var(--cian));
+  color: var(--noche);
+  box-shadow: 0 0 0 1px rgba(127, 241, 250, 0.4), 0 12px 34px -10px rgba(24, 217, 231, 0.75);
+}
+
+.boton-principal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(127, 241, 250, 0.6), 0 18px 44px -10px rgba(24, 217, 231, 0.9);
+}
+
+.boton-secundario {
+  border: 1px solid var(--borde);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--blanco);
+}
+
+.boton-secundario:hover {
+  background: rgba(127, 241, 250, 0.1);
+  transform: translateY(-2px);
+}
+
+.boton:focus-visible {
+  outline: 2px solid var(--cian-claro);
+  outline-offset: 3px;
+}
+
+/*
+  ENTRADA (v-aparecer): los hijos suben con un destello cian, uno tras otro.
+*/
+.aparecer > * {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(6px);
+  transition:
+    opacity 0.8s ease,
+    filter 0.8s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aparecer.visible > * {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.aparecer.visible > :nth-child(2) { transition-delay: 0.1s; }
+.aparecer.visible > :nth-child(3) { transition-delay: 0.2s; }
+.aparecer.visible > :nth-child(4) { transition-delay: 0.3s; }
+.aparecer.visible > :nth-child(5) { transition-delay: 0.4s; }
+.aparecer.visible > :nth-child(6) { transition-delay: 0.5s; }
+.aparecer.visible > :nth-child(n + 7) { transition-delay: 0.6s; }
+
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .aparecer > * {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

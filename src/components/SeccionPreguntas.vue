@@ -1,0 +1,119 @@
+<template>
+  <!-- PREGUNTAS FRECUENTES: acordeón accesible (details/summary) -->
+  <section id="preguntas" class="seccion">
+    <div class="contenedor angosto">
+      <div v-aparecer class="cabecera-seccion">
+        <p class="etiqueta">Preguntas frecuentes</p>
+        <h2 class="titulo">Todo lo que <span class="brillo">te preguntas</span></h2>
+      </div>
+
+      <div v-aparecer class="lista">
+        <details v-for="(p, i) in PREGUNTAS" :key="i" class="pregunta" :open="i === 0">
+          <summary>
+            <span>{{ p.pregunta }}</span>
+            <span class="mas" aria-hidden="true"></span>
+          </summary>
+          <p>{{ p.respuesta }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+const PREGUNTAS = [
+  { pregunta: "¿Mis invitados tienen que descargar algo?", respuesta: "No. La invitación es un enlace que abren desde WhatsApp, en cualquier celular o computadora, sin apps ni registros." },
+  { pregunta: "¿Cómo les llega la invitación a mis invitados?", respuesta: "Con estilo, no solo con un link: cada invitación incluye su diseño en PDF, que personalizas con el nombre del invitado y sus pases. Lo envías por WhatsApp y, al tocar el botón del PDF, se abre la invitación digital." },
+  { pregunta: "¿Con qué app se abre mejor el PDF?", respuesta: "Recomienda a tus invitados abrirlo con Google Drive: se ve completo y el botón abre la invitación con un toque. Algunas apps para editar PDF lo muestran mal o no dejan tocar el botón. Puedes agregar esta recomendación en el mensaje de WhatsApp." },
+  { pregunta: "¿Puedo cambiar datos después de enviarla?", respuesta: "Sí. Si cambia la hora, el lugar o cualquier detalle, lo actualizamos y tus invitados ven la versión nueva con el mismo enlace." },
+  { pregunta: "¿Cómo veo quién confirmó?", respuesta: "Tienes un panel privado con contraseña donde aparece cada confirmación con nombre, teléfono, asistencia y pases, con los totales listos." },
+  { pregunta: "¿Cómo funcionan las fotos en vivo?", respuesta: "Ponemos un código QR en las mesas; tus invitados suben sus fotos desde el celular, tú las apruebas y aparecen en la pantalla o video beam del evento." },
+  { pregunta: "¿Puedo poner mi canción y mis fotos?", respuesta: "Claro. La música, las fotos, los colores y los textos se eligen contigo para que la invitación sea de tu celebración." },
+  { pregunta: "¿Cuánto tarda en estar lista?", respuesta: "Depende del diseño y de los detalles; cuéntanos tu fecha por WhatsApp y te decimos los tiempos." },
+];
+</script>
+
+<style scoped>
+.angosto {
+  max-width: 820px;
+}
+
+.lista {
+  display: grid;
+  gap: 12px;
+}
+
+.pregunta {
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  background: var(--tarjeta);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.pregunta[open] {
+  border-color: rgba(127, 241, 250, 0.38);
+  background: rgba(24, 217, 231, 0.07);
+}
+
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  font-family: var(--fuente-titulo);
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--blanco);
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:focus-visible {
+  outline: 2px solid var(--cian-claro);
+  outline-offset: 2px;
+  border-radius: 20px;
+}
+
+/* + que gira a × */
+.mas {
+  position: relative;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cian-suave);
+  transition: transform 0.35s ease;
+}
+
+.mas::before,
+.mas::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 2px;
+  margin: -1px 0 0 -6px;
+  border-radius: 2px;
+  background: var(--cian);
+}
+
+.mas::after {
+  transform: rotate(90deg);
+}
+
+.pregunta[open] .mas {
+  transform: rotate(45deg);
+}
+
+.pregunta p {
+  margin: 0;
+  padding: 0 22px 22px;
+  color: var(--texto);
+}
+</style>
