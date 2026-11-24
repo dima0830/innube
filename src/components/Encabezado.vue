@@ -8,6 +8,7 @@
       <nav class="enlaces" aria-label="Secciones">
         <a href="#tarjetas">Tarjetas</a>
         <a href="#como-funciona">Cómo funciona</a>
+        <a href="#planes">Planes</a>
         <a href="#proceso">Proceso</a>
         <a href="#preguntas">Preguntas</a>
       </nav>
@@ -21,7 +22,7 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue";
-import logo from "@/assets/img/innube-logo-blanco.svg";
+import logo from "@/assets/img/innube-logo-color.svg";
 import { enlaceWhatsApp } from "@/config";
 import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
 
@@ -47,7 +48,7 @@ onBeforeUnmount(() => window.removeEventListener("scroll", alBajar));
 
 .encabezado.solido {
   padding: 8px 0;
-  background: rgba(7, 26, 46, 0.72);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(14px) saturate(1.3);
   -webkit-backdrop-filter: blur(14px) saturate(1.3);
   box-shadow: 0 1px 0 var(--borde);

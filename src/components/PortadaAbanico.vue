@@ -250,7 +250,7 @@ usarProgresoPista(pistaRef);
   width: 26px;
   height: 42px;
   margin-left: -13px;
-  border: 2px solid rgba(127, 241, 250, 0.5);
+  border: 2px solid rgba(10, 150, 168, 0.5);
   border-radius: 999px;
   opacity: calc(1 - clamp(0, var(--p) / 0.15, 1));
 }

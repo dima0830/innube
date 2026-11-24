@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import nube from "@/assets/img/innube-nube.svg";
-import logo from "@/assets/img/innube-logo-lema.svg";
+import logo from "@/assets/img/innube-logo-lema-oscuro.svg";
 import geronimo from "@/assets/img/geronimo.svg";
 import { CORREO, WHATSAPP, enlaceWhatsApp } from "@/config";
 import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
@@ -45,13 +45,13 @@ const telefonoVisible = WHATSAPP.slice(2).replace(/(\d{3})(\d{3})(\d{4})/, "$1 $
   position: relative;
   overflow: hidden;
   padding: clamp(48px, 8vw, 96px) clamp(22px, 5vw, 64px);
-  border: 1px solid rgba(127, 241, 250, 0.3);
+  border: 1px solid rgba(10, 150, 168, 0.3);
   border-radius: 40px;
   background:
-    radial-gradient(ellipse 80% 70% at 50% 120%, rgba(24, 217, 231, 0.35), transparent 70%),
-    linear-gradient(160deg, #0f3558, #0b2742 60%);
+    radial-gradient(ellipse 80% 70% at 50% 120%, rgba(24, 217, 231, 0.28), transparent 70%),
+    linear-gradient(160deg, #ffffff, #eaf8fa 60%);
   text-align: center;
-  box-shadow: 0 50px 100px -50px rgba(24, 217, 231, 0.6);
+  box-shadow: 0 40px 80px -50px rgba(16, 150, 170, 0.55);
 }
 
 .caja > .nube-fondo.nube-fondo {

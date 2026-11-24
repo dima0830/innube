@@ -9,7 +9,7 @@
       <div v-aparecer class="cabecera-seccion">
         <p class="etiqueta">Cómo funciona</p>
         <h2 class="titulo">Tú celebras, <span class="brillo">la tarjeta trabaja</span></h2>
-        <p class="entrada">Mira en segundos cómo se confirman tus invitados y cómo sus fotos llegan a la pantalla de tu evento.</p>
+        <p class="entrada">Mira en segundos cómo se confirman tus invitados y cómo sus fotos llegan a la pantalla de tu evento. Así funciona el plan Premium.</p>
       </div>
 
       <div class="pestanas" role="tablist" aria-label="Tutoriales">
@@ -313,7 +313,7 @@ onBeforeUnmount(() => {
   padding: 12px 20px;
   border: 1px solid var(--borde);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(19, 40, 61, 0.03);
   color: var(--texto);
   font-family: var(--fuente-titulo);
   font-size: 1rem;
@@ -323,9 +323,9 @@ onBeforeUnmount(() => {
 }
 
 .pestana.activa {
-  background: linear-gradient(135deg, rgba(127, 241, 250, 0.22), rgba(24, 217, 231, 0.1));
+  background: linear-gradient(135deg, rgba(10, 150, 168, 0.22), rgba(24, 217, 231, 0.1));
   color: var(--blanco);
-  box-shadow: 0 0 0 1px rgba(127, 241, 250, 0.45), 0 10px 30px -14px rgba(24, 217, 231, 0.8);
+  box-shadow: 0 0 0 1px rgba(10, 150, 168, 0.45), 0 10px 30px -14px rgba(24, 217, 231, 0.8);
 }
 
 .icono-pestana {
@@ -762,7 +762,7 @@ onBeforeUnmount(() => {
   background: #fff;
   color: #10243a;
   font-size: 12px;
-  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(19, 40, 61, 0.08);
   overflow: hidden;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
@@ -1075,7 +1075,7 @@ onBeforeUnmount(() => {
 }
 
 .pasos li.actual {
-  background: rgba(127, 241, 250, 0.08);
+  background: rgba(10, 150, 168, 0.08);
 }
 
 .pasos li button {
@@ -1110,7 +1110,7 @@ onBeforeUnmount(() => {
 .hecho .num {
   background: var(--cian);
   border-color: var(--cian);
-  color: var(--noche);
+  color: var(--tinta);
 }
 
 .textos {
@@ -1141,7 +1141,7 @@ li:not(.actual) .textos small {
   bottom: 6px;
   height: 2px;
   border-radius: 2px;
-  background: rgba(127, 241, 250, 0.12);
+  background: rgba(10, 150, 168, 0.12);
   overflow: hidden;
 }
 
@@ -1181,7 +1181,7 @@ li:not(.actual) .textos small {
   flex: none;
   border: 1px solid var(--borde);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(19, 40, 61, 0.05);
   color: var(--blanco);
   cursor: pointer;
 }

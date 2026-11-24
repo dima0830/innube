@@ -26,8 +26,9 @@ const PREGUNTAS = [
   { pregunta: "¿Cómo les llega la invitación a mis invitados?", respuesta: "Con estilo, no solo con un link: cada invitación incluye su diseño en PDF, que personalizas con el nombre del invitado y sus pases. Lo envías por WhatsApp y, al tocar el botón del PDF, se abre la invitación digital." },
   { pregunta: "¿Con qué app se abre mejor el PDF?", respuesta: "Recomienda a tus invitados abrirlo con Google Drive: se ve completo y el botón abre la invitación con un toque. Algunas apps para editar PDF lo muestran mal o no dejan tocar el botón. Puedes agregar esta recomendación en el mensaje de WhatsApp." },
   { pregunta: "¿Puedo cambiar datos después de enviarla?", respuesta: "Sí. Si cambia la hora, el lugar o cualquier detalle, lo actualizamos y tus invitados ven la versión nueva con el mismo enlace." },
-  { pregunta: "¿Cómo veo quién confirmó?", respuesta: "Tienes un panel privado con contraseña donde aparece cada confirmación con nombre, teléfono, asistencia y pases, con los totales listos." },
-  { pregunta: "¿Cómo funcionan las fotos en vivo?", respuesta: "Ponemos un código QR en las mesas; tus invitados suben sus fotos desde el celular, tú las apruebas y aparecen en la pantalla o video beam del evento." },
+  { pregunta: "¿Cómo veo quién confirmó?", respuesta: "En el plan Premium tienes un panel privado con contraseña donde aparece cada confirmación con nombre, teléfono, asistencia y pases, con los totales listos. En el plan Básica te entregamos la lista en Excel al cierre de la confirmación." },
+  { pregunta: "¿Cuánto cuesta?", respuesta: "El plan Básica cuesta $130.000 y el Premium $365.000. Puedes sumar adicionales como QR de entrada o video de bienvenida; los ves todos en la sección Planes." },
+  { pregunta: "¿Cómo funcionan las fotos en vivo?", respuesta: "Vienen en el plan Premium. Ponemos un código QR en las mesas; tus invitados suben sus fotos desde el celular, tú las apruebas y aparecen en la pantalla o video beam del evento." },
   { pregunta: "¿Puedo poner mi canción y mis fotos?", respuesta: "Claro. La música, las fotos, los colores y los textos se eligen contigo para que la invitación sea de tu celebración." },
   { pregunta: "¿Cuánto tarda en estar lista?", respuesta: "Depende del diseño y de los detalles; cuéntanos tu fecha por WhatsApp y te decimos los tiempos." },
 ];
@@ -51,7 +52,7 @@ const PREGUNTAS = [
 }
 
 .pregunta[open] {
-  border-color: rgba(127, 241, 250, 0.38);
+  border-color: rgba(10, 150, 168, 0.38);
   background: rgba(24, 217, 231, 0.07);
 }
 

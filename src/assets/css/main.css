@@ -1,20 +1,24 @@
 /*
-  INNUBE: noche azul marino con brillos cian, como el logo (nube + subir).
+  INNUBE: fondo blanco y limpio con acentos cian, como el logo (nube + subir).
+  Los nombres de las variables vienen de la versión oscura; ahora significan:
+  --noche = fondo de la página, --blanco = color de los títulos.
   Reglas: en una misma regla no se mezcla transform con translate/scale/rotate
   (el minificador los junta); se animan solo transformaciones y opacidad.
 */
 :root {
-  --noche: #071a2e;
-  --noche-2: #0b2742;
+  --noche: #ffffff;
+  --noche-2: #f2f8fa;
   --azul: #1e3b5d;
-  --cian: #18d9e7;
-  --cian-claro: #7ff1fa;
-  --cian-suave: rgba(24, 217, 231, 0.14);
-  --blanco: #f4fbff;
-  --texto: #cfe3f1;
-  --texto-suave: #8aa6bf;
-  --borde: rgba(127, 241, 250, 0.16);
-  --tarjeta: rgba(16, 44, 72, 0.55);
+  --cian: #12c6d6;
+  --cian-claro: #0a96a8;
+  --cian-suave: rgba(24, 217, 231, 0.12);
+  --blanco: #13283d;
+  --texto: #3a4d5f;
+  --texto-suave: #687a8b;
+  --borde: rgba(19, 40, 61, 0.12);
+  --tarjeta: #f6fafb;
+  --tinta: #0f2233; /* texto sobre botones cian */
+  --sombra: 0 18px 40px -22px rgba(19, 40, 61, 0.35);
 
   --fuente-titulo: "Poppins", system-ui, sans-serif;
   --fuente-texto: "DM Sans", system-ui, sans-serif;
@@ -55,7 +59,7 @@ a {
 
 ::selection {
   background: var(--cian);
-  color: var(--noche);
+  color: var(--tinta);
 }
 
 .contenedor {
@@ -98,7 +102,7 @@ a {
 
 /* palabra resaltada con el degradado del logo */
 .brillo {
-  background: linear-gradient(100deg, var(--cian-claro), var(--cian) 45%, #4aa8ff);
+  background: linear-gradient(100deg, #0a96a8, #10bccd 45%, #2a7fd4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -149,24 +153,24 @@ a {
 }
 
 .boton-principal {
-  background: linear-gradient(135deg, var(--cian-claro), var(--cian));
-  color: var(--noche);
-  box-shadow: 0 0 0 1px rgba(127, 241, 250, 0.4), 0 12px 34px -10px rgba(24, 217, 231, 0.75);
+  background: linear-gradient(135deg, #3fe3ee, #10bccd);
+  color: var(--tinta);
+  box-shadow: 0 12px 30px -12px rgba(16, 188, 205, 0.7);
 }
 
 .boton-principal:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 0 1px rgba(127, 241, 250, 0.6), 0 18px 44px -10px rgba(24, 217, 231, 0.9);
+  box-shadow: 0 18px 40px -12px rgba(16, 188, 205, 0.85);
 }
 
 .boton-secundario {
   border: 1px solid var(--borde);
-  background: rgba(255, 255, 255, 0.04);
+  background: #fff;
   color: var(--blanco);
 }
 
 .boton-secundario:hover {
-  background: rgba(127, 241, 250, 0.1);
+  background: var(--cian-suave);
   transform: translateY(-2px);
 }
 

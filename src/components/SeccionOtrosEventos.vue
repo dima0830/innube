@@ -44,7 +44,7 @@ const EVENTOS = [
   justify-content: space-between;
   gap: 24px 40px;
   padding: clamp(26px, 4vw, 44px) clamp(22px, 4vw, 52px);
-  border: 1px solid rgba(127, 241, 250, 0.28);
+  border: 1px solid rgba(10, 150, 168, 0.28);
   border-radius: 28px;
   background:
     radial-gradient(ellipse 60% 120% at 0% 50%, rgba(24, 217, 231, 0.16), transparent 70%),
@@ -78,7 +78,7 @@ const EVENTOS = [
   padding: 7px 14px;
   border: 1px solid var(--borde);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(19, 40, 61, 0.04);
   font-size: 0.92rem;
   color: var(--texto);
 }

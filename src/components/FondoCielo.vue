@@ -1,7 +1,7 @@
 <template>
   <!--
-    Cielo nocturno fijo detrás de toda la página: degradado azul marino,
-    auroras cian que se mueven lento y estrellas que titilan.
+    Cielo claro fijo detrás de toda la página: fondo blanco, brillos cian
+    muy suaves que se mueven lento y puntitos de luz que titilan.
   -->
   <div class="cielo" aria-hidden="true">
     <span class="aurora a1"></span>
@@ -35,16 +35,16 @@ const estrellas = Array.from({ length: 70 }, (_, id) => {
   z-index: -1;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 120% 70% at 50% -10%, #0f3558 0%, transparent 60%),
-    linear-gradient(180deg, #081d33 0%, var(--noche) 50%, #050f1c 100%);
+    radial-gradient(ellipse 120% 70% at 50% -10%, #e4f8fb 0%, transparent 60%),
+    linear-gradient(180deg, #f7fcfd 0%, #ffffff 50%, #f3f9fb 100%);
   pointer-events: none;
 }
 
 .aurora {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
+  filter: blur(90px);
+  opacity: 0.16;
   animation: derivar 26s ease-in-out infinite alternate;
 }
 
@@ -61,8 +61,8 @@ const estrellas = Array.from({ length: 70 }, (_, id) => {
   right: -15%;
   width: 50vw;
   height: 45vh;
-  background: #2a6cff;
-  opacity: 0.22;
+  background: #6fb4ff;
+  opacity: 0.12;
   animation-duration: 32s;
   animation-direction: alternate-reverse;
 }
@@ -73,7 +73,7 @@ const estrellas = Array.from({ length: 70 }, (_, id) => {
   width: 60vw;
   height: 40vh;
   background: #0fb5c9;
-  opacity: 0.18;
+  opacity: 0.1;
   animation-duration: 38s;
 }
 
@@ -86,8 +86,8 @@ const estrellas = Array.from({ length: 70 }, (_, id) => {
 .estrella {
   position: absolute;
   border-radius: 50%;
-  background: #eaffff;
-  box-shadow: 0 0 6px rgba(127, 241, 250, 0.8);
+  background: #8fe6ef;
+  opacity: 0.7;
   animation: titilar ease-in-out infinite;
 }
 

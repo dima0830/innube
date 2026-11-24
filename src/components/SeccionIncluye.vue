@@ -23,8 +23,8 @@
 const I = (d: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 
 const FUNCIONES = [
-  { titulo: "Confirmación de invitados", texto: "Te confirman con nombre, asistencia y pases, y lo ves en tu panel privado.", icono: I('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/>'), grande: true },
-  { titulo: "Fotos en vivo", texto: "Tus invitados suben fotos con un QR y aparecen en la pantalla gigante del evento.", icono: I('<path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/>'), grande: true },
+  { titulo: "Confirmación de invitados", texto: "Te confirman con nombre, asistencia y pases. En Premium lo ves en tu panel privado; en Básica recibes la lista en Excel.", icono: I('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/>'), grande: true },
+  { titulo: "Fotos en vivo", texto: "Tus invitados suben fotos con un QR y aparecen en la pantalla gigante del evento. Plan Premium.", icono: I('<path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/>'), grande: true },
   { titulo: "Tarjeta de entrega en PDF", texto: "Su diseño en PDF para que escribas el nombre de cada invitado y le asignes pases.", icono: I('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 14h6M9 17h4"/>'), grande: true },
   { titulo: "Sobre y portada animada", texto: "La primera impresión: un sobre que se abre o una portada con movimiento.", icono: I('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>') },
   { titulo: "Música de fondo", texto: "La canción que elijas suena al abrir la invitación.", icono: I('<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>') },
@@ -59,22 +59,22 @@ function luz(e: PointerEvent) {
   border: 1px solid var(--borde);
   border-radius: 24px;
   background:
-    radial-gradient(260px circle at var(--mx, -200px) var(--my, -200px), rgba(127, 241, 250, 0.14), transparent 60%),
+    radial-gradient(260px circle at var(--mx, -200px) var(--my, -200px), rgba(10, 150, 168, 0.14), transparent 60%),
     var(--tarjeta);
   overflow: hidden;
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .funcion:hover {
-  border-color: rgba(127, 241, 250, 0.4);
+  border-color: rgba(10, 150, 168, 0.4);
   transform: translateY(-4px);
 }
 
 .funcion.grande {
   grid-column: span 2;
   background:
-    radial-gradient(300px circle at var(--mx, -200px) var(--my, -200px), rgba(127, 241, 250, 0.18), transparent 60%),
-    linear-gradient(135deg, rgba(24, 217, 231, 0.14), rgba(30, 59, 93, 0.4));
+    radial-gradient(300px circle at var(--mx, -200px) var(--my, -200px), rgba(10, 150, 168, 0.18), transparent 60%),
+    linear-gradient(135deg, rgba(24, 217, 231, 0.16), rgba(24, 217, 231, 0.04));
 }
 
 .icono {
@@ -84,7 +84,7 @@ function luz(e: PointerEvent) {
   height: 48px;
   margin-bottom: 16px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(127, 241, 250, 0.22), rgba(24, 217, 231, 0.06));
+  background: linear-gradient(135deg, rgba(10, 150, 168, 0.22), rgba(24, 217, 231, 0.06));
   color: var(--cian-claro);
 }
 

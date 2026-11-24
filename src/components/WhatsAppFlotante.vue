@@ -3,7 +3,7 @@
   <Transition name="flotante">
     <a
       v-if="visible"
-      :href="enlaceWhatsApp()"
+      :href="enlaceWhatsApp(mensaje)"
       target="_blank"
       rel="noopener noreferrer"
       class="flotante"
@@ -20,6 +20,8 @@ import { onBeforeUnmount, onMounted, ref } from "vue";
 import { enlaceWhatsApp } from "@/config";
 import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
 
+const props = defineProps<{ mensaje?: string }>();
+const mensaje = props.mensaje;
 const visible = ref(false);
 const revisar = () => (visible.value = window.scrollY > window.innerHeight * 0.9);
 onMounted(() => {

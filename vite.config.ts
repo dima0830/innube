@@ -11,4 +11,13 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  build: {
+    rollupOptions: {
+      // dos páginas: el inicio de Innube y la de invitaciones digitales
+      input: {
+        inicio: fileURLToPath(new URL("./index.html", import.meta.url)),
+        invitaciones: fileURLToPath(new URL("./invitaciones/index.html", import.meta.url)),
+      },
+    },
+  },
 });

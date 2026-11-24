@@ -78,7 +78,7 @@ onBeforeUnmount(() => window.removeEventListener("scroll", programar));
   left: 12.5%;
   right: 12.5%;
   height: 2px;
-  background: rgba(127, 241, 250, 0.14);
+  background: rgba(10, 150, 168, 0.14);
 }
 
 .luz {
@@ -116,7 +116,7 @@ onBeforeUnmount(() => window.removeEventListener("scroll", programar));
 .encendido .circulo {
   border-color: var(--cian);
   background: linear-gradient(135deg, var(--cian-claro), var(--cian));
-  color: var(--noche);
+  color: var(--tinta);
   box-shadow: 0 0 0 6px rgba(24, 217, 231, 0.12), 0 0 30px rgba(24, 217, 231, 0.55);
 }
 

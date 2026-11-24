@@ -129,7 +129,7 @@ onBeforeUnmount(() => clearInterval(reloj));
 }
 
 .invitados button.activo {
-  border-color: rgba(127, 241, 250, 0.5);
+  border-color: rgba(10, 150, 168, 0.5);
   background: rgba(24, 217, 231, 0.1);
   box-shadow: 0 10px 30px -16px rgba(24, 217, 231, 0.8);
 }
@@ -293,9 +293,9 @@ onBeforeUnmount(() => clearInterval(reloj));
   width: min(300px, 82vw);
   padding: 10px 12px 8px;
   border-radius: 14px 14px 14px 4px;
-  background: #1f2c34;
-  color: #e9edef;
-  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.8);
+  background: #ffffff;
+  color: #111b21;
+  box-shadow: 0 20px 40px -16px rgba(19, 40, 61, 0.35);
 }
 
 .archivo {
