@@ -34,7 +34,7 @@
 
       <div v-aparecer>
         <p class="exclusivo">
-          <b>Solo en Premium:</b> el panel de confirmados en tiempo real y las fotos en vivo. Lo demás se puede sumar a cualquiera de los dos planes.
+          <b>Solo en Premium:</b> el panel de confirmados en tiempo real, las fotos en vivo en pantalla gigante y el álbum de recuerdo. Lo demás se puede sumar a cualquiera de los dos planes.
         </p>
       </div>
 

@@ -24,7 +24,7 @@ const I = (d: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentCo
 
 const FUNCIONES = [
   { titulo: "Confirmación de invitados", texto: "Te confirman con nombre, asistencia y pases. En Premium lo ves en tu panel privado; en Básica recibes la lista en Excel.", icono: I('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M17 11l2 2 4-4"/>'), grande: true },
-  { titulo: "Fotos en vivo", texto: "Tus invitados suben fotos con un QR y aparecen en la pantalla gigante del evento. Plan Premium.", icono: I('<path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/>'), grande: true },
+  { titulo: "Fotos en vivo", texto: "Tus invitados suben sus fotos desde la tarjeta. En Básica llegan a una carpeta de Drive; en Premium aparecen en vivo en la pantalla gigante.", icono: I('<path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/>'), grande: true },
   { titulo: "Tarjeta de entrega en PDF", texto: "Su diseño en PDF para que escribas el nombre de cada invitado y le asignes pases.", icono: I('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 14h6M9 17h4"/>'), grande: true },
   { titulo: "Sobre y portada animada", texto: "La primera impresión: un sobre que se abre o una portada con movimiento.", icono: I('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>') },
   { titulo: "Música de fondo", texto: "La canción que elijas suena al abrir la invitación.", icono: I('<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>') },

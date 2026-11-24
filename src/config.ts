@@ -80,8 +80,9 @@ export const DEMO = {
 
 /*
   PLANES Y PRECIOS (los mismos del catálogo PDF: /home/dima/innube/catalogo)
-  El panel de confirmados y las fotos en vivo son exclusivos de Premium:
-  no se venden como adicional de la Básica.
+  El panel de confirmados, las fotos en vivo y el álbum de recuerdo son
+  exclusivos de Premium: no se venden como adicional de la Básica. En la
+  Básica las fotos de los invitados van a una carpeta de Drive.
 */
 export type Plan = {
   id: string;
@@ -108,6 +109,7 @@ export const PLANES: Plan[] = [
       "Galería de hasta 6 fotos",
       "Formulario de confirmación de asistencia",
       "Lista de confirmados en Excel al cierre",
+      "Tus invitados suben sus fotos a una carpeta de Drive",
     ],
   },
   {
@@ -133,7 +135,7 @@ export const PLANES: Plan[] = [
 export const ADICIONALES: { nombre: string; precio: string }[] = [
   { nombre: "QR de entrada y control en la puerta", precio: "$80.000" },
   { nombre: "Soporte en vivo el día del evento", precio: "$80.000" },
-  { nombre: "Álbum de recuerdo después del evento", precio: "$60.000" },
+  { nombre: "Álbum de recuerdo (solo Premium)", precio: "$60.000" },
   { nombre: "Trivia de la pareja o la quinceañera", precio: "$60.000" },
   { nombre: "Libro de firmas digital", precio: "$50.000" },
   { nombre: "Video de entrada o de los anfitriones", precio: "$50.000" },

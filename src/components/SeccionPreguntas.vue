@@ -28,7 +28,7 @@ const PREGUNTAS = [
   { pregunta: "¿Puedo cambiar datos después de enviarla?", respuesta: "Sí. Si cambia la hora, el lugar o cualquier detalle, lo actualizamos y tus invitados ven la versión nueva con el mismo enlace." },
   { pregunta: "¿Cómo veo quién confirmó?", respuesta: "En el plan Premium tienes un panel privado con contraseña donde aparece cada confirmación con nombre, teléfono, asistencia y pases, con los totales listos. En el plan Básica te entregamos la lista en Excel al cierre de la confirmación." },
   { pregunta: "¿Cuánto cuesta?", respuesta: "El plan Básica cuesta $130.000 y el Premium $365.000. Puedes sumar adicionales como QR de entrada o video de bienvenida; los ves todos en la sección Planes." },
-  { pregunta: "¿Cómo funcionan las fotos en vivo?", respuesta: "Vienen en el plan Premium. Ponemos un código QR en las mesas; tus invitados suben sus fotos desde el celular, tú las apruebas y aparecen en la pantalla o video beam del evento." },
+  { pregunta: "¿Cómo comparten fotos mis invitados?", respuesta: "En el plan Básica tus invitados suben sus fotos desde la tarjeta y todas llegan a una carpeta de Drive para ti. En el Premium, además, ponemos un código QR en las mesas; tus invitados suben sus fotos desde el celular, tú las apruebas y aparecen en la pantalla o video beam del evento." },
   { pregunta: "¿Puedo poner mi canción y mis fotos?", respuesta: "Claro. La música, las fotos, los colores y los textos se eligen contigo para que la invitación sea de tu celebración." },
   { pregunta: "¿Cuánto tarda en estar lista?", respuesta: "Depende del diseño y de los detalles; cuéntanos tu fecha por WhatsApp y te decimos los tiempos." },
 ];
