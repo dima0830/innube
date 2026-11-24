@@ -31,7 +31,7 @@ const PASOS = [
   { titulo: "Escríbenos", texto: "Cuéntanos por WhatsApp qué celebras, la fecha y tus ideas.", icono: I('<path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12z"/>') },
   { titulo: "Elige el diseño", texto: "Parte de uno de nuestros modelos o creamos uno nuevo para ti.", icono: I('<path d="M12 3l2.4 5 5.6.8-4 3.9.9 5.5L12 15.6 7.1 18.2 8 12.7 4 8.8 9.6 8z"/>') },
   { titulo: "Envía tus datos", texto: "Nombres, lugares, fotos y la canción. Nosotros lo armamos.", icono: I('<path d="M4 12l16-8-6 16-3-6z"/>') },
-  { titulo: "Envía tus invitaciones", texto: "Recibes el enlace y su PDF para personalizarlo con cada invitado y sus pases.", icono: I('<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>') },
+  { titulo: "Envía tus invitaciones", texto: "Recibes el enlace listo para compartir; en Premium, uno a nombre de cada invitado con sus pases.", icono: I('<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>') },
 ];
 
 /* la línea avanza mientras la sección pasa por la mitad de la pantalla */

@@ -23,8 +23,7 @@
 <script setup lang="ts">
 const PREGUNTAS = [
   { pregunta: "¿Mis invitados tienen que descargar algo?", respuesta: "No. La invitación es un enlace que abren desde WhatsApp, en cualquier celular o computadora, sin apps ni registros." },
-  { pregunta: "¿Cómo les llega la invitación a mis invitados?", respuesta: "Con estilo, no solo con un link: cada invitación incluye su diseño en PDF, que personalizas con el nombre del invitado y sus pases. Lo envías por WhatsApp y, al tocar el botón del PDF, se abre la invitación digital." },
-  { pregunta: "¿Con qué app se abre mejor el PDF?", respuesta: "Recomienda a tus invitados abrirlo con Google Drive: se ve completo y el botón abre la invitación con un toque. Algunas apps para editar PDF lo muestran mal o no dejan tocar el botón. Puedes agregar esta recomendación en el mensaje de WhatsApp." },
+  { pregunta: "¿Cómo les llega la invitación a mis invitados?", respuesta: "Por WhatsApp, con un enlace que se ve con una vista previa bonita en el chat. En el plan Premium cada familia recibe su propio enlace: al abrirlo, la invitación la saluda por su nombre y le muestra cuántos pases tiene." },
   { pregunta: "¿Puedo cambiar datos después de enviarla?", respuesta: "Sí. Si cambia la hora, el lugar o cualquier detalle, lo actualizamos y tus invitados ven la versión nueva con el mismo enlace." },
   { pregunta: "¿Cómo veo quién confirmó?", respuesta: "En el plan Premium tienes un panel privado con contraseña donde aparece cada confirmación con nombre, teléfono, asistencia y pases, con los totales listos. En el plan Básica te entregamos la lista en Excel al cierre de la confirmación." },
   { pregunta: "¿Cuánto cuesta?", respuesta: "El plan Básica cuesta $130.000 y el Premium $365.000. Puedes sumar adicionales como QR de entrada o video de bienvenida; los ves todos en la sección Planes." },

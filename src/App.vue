@@ -7,7 +7,6 @@
     <SeccionOtrosEventos />
     <SeccionIncluye />
     <ComoFunciona />
-    <SeccionPdf />
     <SeccionPlanes />
     <SeccionProceso />
     <SeccionPreguntas />
@@ -27,7 +26,6 @@ import SeccionTarjetas from "@/components/SeccionTarjetas.vue";
 import SeccionOtrosEventos from "@/components/SeccionOtrosEventos.vue";
 import SeccionIncluye from "@/components/SeccionIncluye.vue";
 import ComoFunciona from "@/components/ComoFunciona.vue";
-import SeccionPdf from "@/components/SeccionPdf.vue";
 import SeccionPlanes from "@/components/SeccionPlanes.vue";
 import SeccionProceso from "@/components/SeccionProceso.vue";
 import SeccionPreguntas from "@/components/SeccionPreguntas.vue";

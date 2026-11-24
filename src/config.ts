@@ -128,6 +128,7 @@ export const PLANES: Plan[] = [
       "Galería de fotos ilimitada",
       "Código de vestimenta e itinerario",
       "Mesa de regalos y lluvia de sobres con QR de Nequi",
+      "Dirección propia: tunombre.innube.online",
     ],
   },
 ];
@@ -142,7 +143,8 @@ export const ADICIONALES: { nombre: string; precio: string }[] = [
   { nombre: "Asignación de mesas", precio: "$50.000" },
   { nombre: "Transmisión en vivo", precio: "$50.000" },
   { nombre: "Recordatorios por WhatsApp", precio: "$40.000" },
-  { nombre: "Dominio propio", precio: "$40.000" },
+  { nombre: "Dirección propia, tunombre.innube.online (incluida en Premium)", precio: "$25.000" },
+  { nombre: "Tarjeta en línea más tiempo (cada 3 meses extra)", precio: "$15.000" },
   { nombre: "Peticiones de canciones para el DJ", precio: "$30.000" },
   { nombre: "Entrega urgente (24 a 48 h)", precio: "+30%" },
 ];

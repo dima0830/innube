@@ -42,8 +42,8 @@
                     <div class="burbuja recibida">¡Te invitamos a nuestra celebración! 💛</div>
                     <div class="burbuja recibida enlace">
                       <img :src="pdfBase" alt="" />
-                      <b><span class="mini-pdf">PDF</span> Invitación Laura Gómez.pdf</b>
-                      <small>Toca el botón para abrir tu invitación</small>
+                      <b>Invitación para la familia Rodríguez</b>
+                      <small>2 pases · Toca para abrir tu invitación</small>
                     </div>
                     <div class="dedo" style="--x: 55%; --y: 68%"></div>
                   </div>
@@ -199,7 +199,7 @@ const TUTORIALES = [
     textoEnlace: "Ver el panel real",
     nota: "El panel real de Vale está protegido con contraseña: así solo tú ves la lista de tus invitados.",
     pasos: [
-      { titulo: "Envías su invitación", texto: "Por WhatsApp, en el PDF con su nombre y sus pases." },
+      { titulo: "Envías su invitación", texto: "Por WhatsApp, con un enlace a su nombre y sus pases." },
       { titulo: "Tu invitado confirma", texto: "Escribe su nombre, si asiste y cuántos pases usará." },
       { titulo: "Lo ves al instante", texto: "Aparece en tu panel con el total de asistentes y pases." },
       { titulo: "Tu lista siempre al día", texto: "Consúltala desde el celular cuando quieras." },
@@ -452,16 +452,6 @@ onBeforeUnmount(() => {
   border-radius: 7px;
   object-fit: cover;
   object-position: top;
-}
-
-.mini-pdf {
-  display: inline-block;
-  padding: 1px 4px;
-  border-radius: 3px;
-  background: #e5383b;
-  color: #fff;
-  font-size: 8px;
-  vertical-align: 1px;
 }
 
 .burbuja.enlace small {
