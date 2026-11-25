@@ -168,6 +168,14 @@ export const ADICIONALES: { nombre: string; precio: string }[] = [
   { nombre: "Entrega urgente (24 a 48 h)", precio: "+30%" },
 ];
 
+/* TARJETA REGALO: el producto más económico; el cliente la pide solo en /pedido/ */
+export const REGALO = {
+  precio: "$60.000",
+  texto: "Para cumpleaños, aniversarios, el Día de la Madre o del Padre: un regalo con su nombre que se abre en el celular, con sus fotos, su canción, deseos y los mensajes secretos de la familia.",
+  incluye: ["Hasta 20 fotos que pasan solas", "Su canción favorita", "Página secreta para la familia", "Entrega en 2 días hábiles"],
+  urgente: "¿Es para hoy? Entrega el mismo día: +$25.000",
+};
+
 export const INSTITUCIONAL = {
   precio: "$350.000",
   texto: "Grados y eventos de colegios: invitación con el logo de la institución y un enlace personalizado para la familia de cada estudiante.*",

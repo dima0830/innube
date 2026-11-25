@@ -38,6 +38,25 @@
         </p>
       </div>
 
+      <!-- TARJETA REGALO: se pide sola en el formulario /pedido/ -->
+      <div v-aparecer class="regalo">
+        <img :src="imagenRegalo" alt="Tarjeta Regalo de muestra: los 40 de Caro" class="regalo-img" loading="lazy" />
+        <div class="regalo-texto">
+          <p class="etiqueta">Para regalar</p>
+          <h3>Tarjeta Regalo</h3>
+          <p class="regalo-precio">{{ REGALO.precio }} <small>COP</small></p>
+          <p class="regalo-desc">{{ REGALO.texto }}</p>
+          <ul>
+            <li v-for="item in REGALO.incluye" :key="item">{{ item }}</li>
+          </ul>
+          <p class="regalo-urgente">{{ REGALO.urgente }}</p>
+          <div class="regalo-botones">
+            <a :href="pedido" class="boton boton-principal">🎁 Pídela aquí</a>
+            <a href="https://dima0830.github.io/cumple40/" target="_blank" rel="noopener" class="boton boton-secundario">Ver la muestra</a>
+          </div>
+        </div>
+      </div>
+
       <div v-aparecer class="extras">
         <div class="adicionales">
           <h3>Adicionales</h3>
@@ -68,7 +87,10 @@
 </template>
 
 <script setup lang="ts">
-import { ADICIONALES, INSTITUCIONAL, PLANES, enlaceWhatsApp } from "@/config";
+import { ADICIONALES, INSTITUCIONAL, PLANES, REGALO, enlaceWhatsApp } from "@/config";
+import imagenRegalo from "@/assets/img/tarjeta-regalo.webp";
+
+const pedido = `${import.meta.env.BASE_URL}pedido/`;
 import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
 </script>
 
@@ -206,6 +228,85 @@ import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
   color: var(--blanco);
 }
 
+.regalo {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  align-items: center;
+  max-width: 944px;
+  margin: 40px auto 0;
+  padding: 28px 32px;
+  border: 2px solid #ecc6c9;
+  border-radius: 24px;
+  background: linear-gradient(150deg, #fdeeee, #fff 65%);
+}
+
+.regalo-img {
+  width: 100%;
+  aspect-ratio: 600 / 1100;
+  object-fit: cover;
+  object-position: top;
+  border: 7px solid #1b1d20;
+  border-radius: 30px;
+  box-shadow: 0 24px 40px -24px rgba(143, 79, 90, 0.7);
+  transform: rotate(-3deg);
+}
+
+.regalo .etiqueta {
+  color: #b76e79;
+}
+
+.regalo h3 {
+  margin: 4px 0 0;
+  font: 700 1.6rem var(--fuente-titulo);
+  color: var(--blanco);
+}
+
+.regalo-precio {
+  margin: 4px 0 0;
+  font: 700 2rem var(--fuente-titulo);
+  color: #b76e79;
+}
+
+.regalo-precio small {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.regalo-desc {
+  margin: 10px 0 0;
+  color: var(--texto);
+}
+
+.regalo ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 20px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.92rem;
+}
+
+.regalo li::before {
+  content: "✓ ";
+  color: #b76e79;
+  font-weight: 700;
+}
+
+.regalo-urgente {
+  margin: 12px 0 0;
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+
+.regalo-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
 .extras {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
@@ -284,6 +385,25 @@ import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
 }
 
 @media (max-width: 860px) {
+  .regalo {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .regalo-img {
+    width: 170px;
+    margin: 0 auto;
+  }
+  .regalo ul {
+    grid-template-columns: 1fr;
+    text-align: left;
+    justify-items: start;
+    width: fit-content;
+    margin-inline: auto;
+  }
+  .regalo-botones {
+    justify-content: center;
+  }
   .planes,
   .extras {
     grid-template-columns: 1fr;
