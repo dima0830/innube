@@ -160,7 +160,7 @@
       <div id="caja-estilo" hidden>
         <label for="estilo-deseado">¿Cómo te lo imaginas? <span class="ayuda">Colores, temas o cosas que le encantan. Ej: "dorado y negro, con estrellas", "azul y plata, de fútbol".</span></label>
         <textarea id="estilo-deseado" maxlength="400"></textarea>
-        <p class="ayuda" style="margin-top:6px">Un estilo nuevo tiene un valor adicional: te lo confirmamos por WhatsApp antes de empezar.</p>
+        <p class="ayuda" style="margin-top:6px">Lo diseñamos especialmente para esa persona, <b>sin costo adicional</b> ✨</p>
       </div>
     </fieldset>
 
@@ -350,10 +350,10 @@
   /* ---------- resumen y precio ---------- */
   function resumir() {
     const filas = [["Tarjeta Regalo", pesos(CONFIG.precio)]];
+    if (estilo() === "nuevo") filas.push(["Estilo diseñado para esa persona", "incluido"]);
     let total = CONFIG.precio;
     if ($("urgente").checked) { filas.push(["Entrega el mismo día", pesos(CONFIG.urgente)]); total += CONFIG.urgente; }
     const porConfirmar = [];
-    if (estilo() === "nuevo") porConfirmar.push("estilo nuevo");
     if (fotos.length > CONFIG.fotosIncluidas) porConfirmar.push("fotos adicionales");
     porConfirmar.forEach((p) => filas.push([p[0].toUpperCase() + p.slice(1), "a confirmar"]));
     $("resumen").innerHTML = filas.map(([a, b]) => `<li><span>${a}</span><b>${b}</b></li>`).join("")

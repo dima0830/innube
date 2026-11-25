@@ -17,7 +17,8 @@
 
   <footer class="pie">
     <div class="contenedor fila">
-      <img :src="logo" alt="Innube. Crea, siente, conecta." class="logo-pie" width="130" height="110" />
+      <img :src="logo" alt="Innube. Crea, siente, conecta." class="logo-pie logo-claro" width="130" height="110" />
+      <img :src="logoLema" alt="Innube. Crea, siente, conecta." class="logo-pie logo-oscuro" width="130" height="110" />
       <p class="contacto">
         <a :href="enlaceWhatsApp()" target="_blank" rel="noopener noreferrer">WhatsApp {{ telefonoVisible }}</a>
         <span aria-hidden="true">·</span>
@@ -31,6 +32,7 @@
 <script setup lang="ts">
 import nube from "@/assets/img/innube-nube.svg";
 import logo from "@/assets/img/innube-logo-lema-oscuro.svg";
+import logoLema from "@/assets/img/innube-logo-lema.svg";
 import geronimo from "@/assets/img/geronimo.svg";
 import { CORREO, WHATSAPP, enlaceWhatsApp } from "@/config";
 import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
@@ -49,7 +51,7 @@ const telefonoVisible = WHATSAPP.slice(2).replace(/(\d{3})(\d{3})(\d{4})/, "$1 $
   border-radius: 40px;
   background:
     radial-gradient(ellipse 80% 70% at 50% 120%, rgba(24, 217, 231, 0.28), transparent 70%),
-    linear-gradient(160deg, #ffffff, #eaf8fa 60%);
+    linear-gradient(160deg, var(--boton-2), var(--cielo-1) 60%);
   text-align: center;
   box-shadow: 0 40px 80px -50px rgba(16, 150, 170, 0.55);
 }

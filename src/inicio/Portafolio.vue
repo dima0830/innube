@@ -77,7 +77,7 @@ const linea = computed(() => PORTAFOLIO.find((l) => l.id === activa.value)!);
 
 .pestanas button.activa {
   background: var(--blanco);
-  color: #fff;
+  color: var(--noche);
   border-color: var(--blanco);
 }
 

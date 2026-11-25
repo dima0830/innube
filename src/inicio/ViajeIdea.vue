@@ -9,6 +9,8 @@
   -->
   <section id="viaje" ref="viaje" class="viaje" :class="{ quieto }" aria-label="El viaje de una idea">
     <div class="escenario">
+      <!-- fondo de cubos: fuerte en la portada, suave durante el viaje -->
+      <div ref="cubos" class="cubos"><FondoCubos /></div>
       <div class="visual" aria-hidden="true">
         <div ref="caja" class="caja">
           <span class="halo"></span>
@@ -132,10 +134,10 @@
       <div class="textos">
         <!-- portada -->
         <div class="panel portada">
-          <h1 class="grande">Todo empieza con una idea.</h1>
+          <h1 class="grande">Todo empieza con una <Resaltado :retraso="700">idea</Resaltado>.</h1>
           <p class="bajada">La tuya. En Innube la convertimos en algo que se ve, se toca y se regala.</p>
           <div class="acciones">
-            <a :href="enlaceWhatsApp(MENSAJES.general)" target="_blank" rel="noopener noreferrer" class="boton boton-principal">
+            <a :href="enlaceWhatsApp(MENSAJES.general)" target="_blank" rel="noopener noreferrer" v-magnetico class="boton boton-principal">
               <IconoWhatsApp />
               <span>Cuéntanos tu idea</span>
             </a>
@@ -157,14 +159,14 @@
         <!-- final -->
         <div class="panel final">
           <p class="numero">06</p>
-          <h2 class="grande">Y llega a ti.</h2>
+          <h2 class="grande">Y llega a <Resaltado tipo="circulo" :retraso="200">ti</Resaltado>.</h2>
           <p class="bajada">Ahora cuéntanos: ¿cuál es tu idea?</p>
           <div class="acciones">
-            <a :href="enlaceWhatsApp(MENSAJES.general)" target="_blank" rel="noopener noreferrer" class="boton boton-principal">
+            <a :href="enlaceWhatsApp(MENSAJES.general)" target="_blank" rel="noopener noreferrer" v-magnetico class="boton boton-principal">
               <IconoWhatsApp />
               <span>Escríbenos por WhatsApp</span>
             </a>
-            <a href="#portafolio" class="boton boton-secundario">Ver trabajos</a>
+            <a v-magnetico href="#portafolio" class="boton boton-secundario">Ver trabajos</a>
           </div>
         </div>
       </div>
@@ -183,12 +185,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import geronimoSvg from "@/assets/img/geronimo.svg";
 import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
+import FondoCubos from "@/components/FondoCubos.vue";
+import Resaltado from "@/components/Resaltado.vue";
 import { enlaceWhatsApp } from "@/config";
 import { MENSAJES, PASOS } from "./datos";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const viaje = ref<HTMLElement>();
+const cubos = ref<HTMLElement>();
 const caja = ref<HTMLElement>();
 const geronimo = ref<HTMLElement>();
 const bombillo = ref<SVGElement>();
@@ -258,6 +263,9 @@ onMounted(() => {
       tl.to(panelesOrdenados[i], { autoAlpha: 1, y: 0, duration: 0.35 }, i - 1 + 0.3);
     }
 
+    // los cubos se calman después de la portada (siguen ahí, suaves)
+    tl.to(cubos.value!, { opacity: 0.35, duration: 0.5 }, 0);
+
     // 0 → 1: la idea se enciende y Gerónimo se hace a un lado para acompañar
     tl.to(geronimo.value!, { x: () => -ancho() * 0.4, y: () => ancho() * 0.08, scale: 0.34 }, 0)
       .to(bombillo.value!, { y: () => ancho() * 0.3, scale: 2.5 }, 0)
@@ -311,6 +319,18 @@ onBeforeUnmount(() => ctx?.revert());
   top: 0;
   height: 100svh;
   overflow: hidden;
+}
+
+.cubos {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.visual,
+.textos,
+.progreso {
+  z-index: 1;
 }
 
 /* ---------- lo visual ---------- */

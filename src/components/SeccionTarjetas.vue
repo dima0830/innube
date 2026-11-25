@@ -45,11 +45,11 @@
             </li>
           </ul>
           <div class="botones">
-            <button type="button" class="boton boton-principal" @click="emit('probar', t)">
+            <button v-magnetico type="button" class="boton boton-principal" @click="emit('probar', t)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5" /><path d="M10.5 18.5h3" /></svg>
               Probar aquí
             </button>
-            <a :href="t.url" target="_blank" rel="noopener noreferrer" class="boton boton-secundario">
+            <a v-magnetico :href="t.url" target="_blank" rel="noopener noreferrer" class="boton boton-secundario">
               Ver invitación
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg>
             </a>

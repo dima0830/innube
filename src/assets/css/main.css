@@ -25,6 +25,55 @@
 
   --ancho: 1180px;
   --espacio-seccion: clamp(80px, 12vw, 140px);
+
+  /* colores que cambian con el tema (aquí, modo claro) */
+  --encabezado: rgba(255, 255, 255, 0.85);
+  --boton-2: #ffffff;
+  --cielo-1: #e4f8fb;
+  --cielo-2: #f7fcfd;
+  --cielo-3: #f3f9fb;
+  --resaltado: #2f80d6; /* el trazo azul que resalta palabras */
+  --cubo-arriba: #ffffff;
+  --cubo-izq: #edf3f8;
+  --cubo-der: #dfe8f0;
+  --cubo-brillo: 24, 217, 231;
+  color-scheme: light;
+}
+
+/* MODO OSCURO: azul muy oscuro, casi negro (elección del usuario, 25-nov-2026) */
+:root[data-tema="oscuro"] {
+  --noche: #060c17;
+  --noche-2: #0a1324;
+  --cian-claro: #3fdbe9;
+  --cian-suave: rgba(24, 217, 231, 0.14);
+  --blanco: #eef6fb;
+  --texto: #b9c8d6;
+  --texto-suave: #8aa0b5;
+  --borde: rgba(180, 215, 240, 0.14);
+  --tarjeta: #0d182b;
+  --sombra: 0 18px 40px -22px rgba(0, 0, 0, 0.8);
+  --encabezado: rgba(6, 12, 23, 0.82);
+  --boton-2: #0d182b;
+  --cielo-1: #0b2236;
+  --cielo-2: #07101e;
+  --cielo-3: #081324;
+  --resaltado: #5aa6ff;
+  --cubo-arriba: #0e1a2e;
+  --cubo-izq: #0a1324;
+  --cubo-der: #070e1b;
+  --cubo-brillo: 24, 217, 231;
+  color-scheme: dark;
+}
+
+/* logos: el de color en modo claro, el blanco en modo oscuro */
+.logo-oscuro {
+  display: none !important;
+}
+:root[data-tema="oscuro"] .logo-oscuro {
+  display: block !important;
+}
+:root[data-tema="oscuro"] .logo-claro {
+  display: none !important;
 }
 
 * {
@@ -165,13 +214,31 @@ a {
 
 .boton-secundario {
   border: 1px solid var(--borde);
-  background: #fff;
+  background: var(--boton-2);
   color: var(--blanco);
 }
 
 .boton-secundario:hover {
   background: var(--cian-suave);
   transform: translateY(-2px);
+}
+
+/* BOTÓN MAGNÉTICO (v-magnetico): se acerca al cursor y vuelve con rebote */
+.magnetico {
+  translate: var(--mx) var(--my);
+  transition:
+    translate 0.5s cubic-bezier(0.34, 1.8, 0.5, 1),
+    transform 0.2s ease,
+    box-shadow 0.3s ease,
+    background-color 0.2s ease;
+}
+
+.magnetico.atraido {
+  transition:
+    translate 0.12s linear,
+    transform 0.2s ease,
+    box-shadow 0.3s ease,
+    background-color 0.2s ease;
 }
 
 .boton:focus-visible {

@@ -35,9 +35,10 @@ const estrellas = Array.from({ length: 70 }, (_, id) => {
   z-index: -1;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 120% 70% at 50% -10%, #e4f8fb 0%, transparent 60%),
-    linear-gradient(180deg, #f7fcfd 0%, #ffffff 50%, #f3f9fb 100%);
+    radial-gradient(ellipse 120% 70% at 50% -10%, var(--cielo-1) 0%, transparent 60%),
+    linear-gradient(180deg, var(--cielo-2) 0%, var(--noche) 50%, var(--cielo-3) 100%);
   pointer-events: none;
+  transition: background-color 0.3s ease;
 }
 
 .aurora {

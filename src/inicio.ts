@@ -1,6 +1,7 @@
 import { createApp, type Directive } from "vue";
 import Inicio from "./Inicio.vue";
 import "./assets/css/main.css";
+import { magnetico } from "./magnetico";
 
 /* v-aparecer: los hijos del elemento suben con un brillo al entrar en pantalla (una vez) */
 const aparecer: Directive<HTMLElement> = {
@@ -19,4 +20,4 @@ const aparecer: Directive<HTMLElement> = {
   },
 };
 
-createApp(Inicio).directive("aparecer", aparecer).mount("#app");
+createApp(Inicio).directive("aparecer", aparecer).directive("magnetico", magnetico).mount("#app");

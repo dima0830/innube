@@ -2,7 +2,8 @@
   <header class="encabezado" :class="{ solido: abajo }">
     <div class="contenedor fila">
       <a href="#viaje" class="logo" aria-label="Innube, ir al inicio">
-        <img :src="logo" alt="Innube" width="62" height="50" />
+        <img :src="logo" alt="Innube" class="logo-claro" width="62" height="50" />
+        <img :src="logoBlanco" alt="Innube" class="logo-oscuro" width="62" height="50" />
       </a>
       <nav class="enlaces" aria-label="Secciones">
         <a href="#portafolio">Portafolio</a>
@@ -10,10 +11,13 @@
         <a :href="invitaciones">Invitaciones</a>
         <a href="#contacto">Contacto</a>
       </nav>
-      <a :href="enlaceWhatsApp(MENSAJES.general)" target="_blank" rel="noopener noreferrer" class="boton boton-principal cotizar">
+      <div class="derecha">
+        <BotonTema />
+        <a :href="enlaceWhatsApp(MENSAJES.general)" target="_blank" rel="noopener noreferrer" v-magnetico class="boton boton-principal cotizar">
         <IconoWhatsApp />
         <span>Escríbenos</span>
       </a>
+      </div>
     </div>
   </header>
 </template>
@@ -21,6 +25,8 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import logo from "@/assets/img/innube-logo-color.svg";
+import logoBlanco from "@/assets/img/innube-logo-blanco.svg";
+import BotonTema from "@/components/BotonTema.vue";
 import { enlaceWhatsApp } from "@/config";
 import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
 import { MENSAJES } from "./datos";
@@ -47,7 +53,7 @@ onBeforeUnmount(() => window.removeEventListener("scroll", alBajar));
 }
 
 .encabezado.solido {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--encabezado);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--borde);
@@ -90,5 +96,10 @@ onBeforeUnmount(() => window.removeEventListener("scroll", alBajar));
   .enlaces {
     display: flex;
   }
+}
+.derecha {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 </style>

@@ -13,7 +13,8 @@
       </div>
 
       <div class="datos">
-        <img :src="logo" alt="Innube" width="90" height="72" />
+        <img :src="logo" alt="Innube" class="logo-claro" width="90" height="72" />
+        <img :src="logoLema" alt="Innube" class="logo-oscuro" width="90" height="72" />
         <p>Crea, siente, conecta.</p>
         <ul>
           <li><a href="https://www.instagram.com/innube_digital/" target="_blank" rel="noopener noreferrer">@innube_digital</a></li>
@@ -28,6 +29,7 @@
 
 <script setup lang="ts">
 import logo from "@/assets/img/innube-logo-lema-oscuro.svg";
+import logoLema from "@/assets/img/innube-logo-lema.svg";
 import geronimo from "@/assets/img/geronimo.svg";
 import { CORREO, enlaceWhatsApp } from "@/config";
 import IconoWhatsApp from "@/components/IconoWhatsApp.vue";

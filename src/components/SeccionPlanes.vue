@@ -109,13 +109,13 @@ import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
   padding: 34px 30px 30px;
   border: 1px solid var(--borde);
   border-radius: 28px;
-  background: #fff;
+  background: var(--boton-2);
   box-shadow: var(--sombra);
 }
 
 .plan.destacado {
   border: 2px solid var(--cian);
-  background: linear-gradient(180deg, rgba(24, 217, 231, 0.12), #fff 55%);
+  background: linear-gradient(180deg, rgba(24, 217, 231, 0.12), var(--boton-2) 55%);
   box-shadow: 0 30px 60px -30px rgba(16, 188, 205, 0.55);
 }
 
@@ -238,7 +238,7 @@ import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
   padding: 28px 32px;
   border: 2px solid #ecc6c9;
   border-radius: 24px;
-  background: linear-gradient(150deg, #fdeeee, #fff 65%);
+  background: linear-gradient(150deg, rgba(232, 160, 168, 0.18), var(--boton-2) 65%);
 }
 
 .regalo-img {
@@ -358,7 +358,7 @@ import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
   display: flex;
   flex-direction: column;
   border: 2px solid rgba(16, 188, 205, 0.45);
-  background: linear-gradient(160deg, rgba(24, 217, 231, 0.1), #fff 70%);
+  background: linear-gradient(160deg, rgba(24, 217, 231, 0.1), var(--boton-2) 70%);
 }
 
 .institucional .etiqueta {
