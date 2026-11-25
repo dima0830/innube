@@ -17,8 +17,9 @@
 
           <img ref="geronimo" class="geronimo" :src="geronimoSvg" alt="" />
 
-          <!-- 1. la idea -->
-          <svg ref="bombillo" class="bombillo" viewBox="0 0 100 130">
+          <!-- 1. la idea (foto recortada si existe viaje/idea.webp; si no, el dibujo) -->
+          <img v-if="foto.idea" ref="bombillo" class="bombillo es-foto" :src="foto.idea" alt="" />
+          <svg v-else ref="bombillo" class="bombillo" viewBox="0 0 100 130">
             <defs>
               <radialGradient id="luz-bombillo">
                 <stop offset="0" stop-color="#fff6c2" stop-opacity="0.95" />
@@ -43,14 +44,22 @@
           </svg>
 
           <!-- 3. se imprime: el aviso, con el rollo de vinilo que lo descubre -->
-          <div ref="aviso" class="aviso">
+          <div ref="aviso" class="aviso" :class="{ 'con-foto': foto.aviso }">
             <span ref="luz" class="luz"></span>
-            <span class="marca">TU MARCA</span>
+            <template v-if="foto.aviso">
+              <img class="aviso-foto" :src="foto.aviso" alt="" />
+              <!-- el logo real va encima del aviso de la foto (la IA no escribe bien los logos) -->
+              <img class="aviso-logo" :src="logoAviso" alt="" />
+            </template>
+            <span v-else class="marca">TU MARCA</span>
           </div>
-          <span ref="rollo" class="rollo"></span>
+          <img v-if="foto.rollo" ref="rollo" class="rollo es-foto" :src="foto.rollo" alt="" />
+          <span v-else ref="rollo" class="rollo"></span>
 
           <!-- 2. se vuelve diseño: la nube se dibuja con sus nodos de vector -->
-          <svg ref="dibujo" class="dibujo" viewBox="0 0 220 150">
+          <div ref="dibujo" class="dibujo" :class="{ 'con-foto': foto.diseno }">
+          <img v-if="foto.diseno" class="tableta" :src="foto.diseno" alt="" />
+          <svg class="dibujo-svg" viewBox="0 0 220 150">
             <defs>
               <linearGradient id="relleno-nube" x1="0" y1="1" x2="0" y2="0">
                 <stop offset="0" stop-color="#1e3b5d" />
@@ -84,9 +93,11 @@
               <circle cx="212" cy="124" r="4" />
             </g>
           </svg>
+          </div>
 
           <!-- 4. se vuelve tuya: mug y cojín -->
-          <svg ref="mug" class="mug" viewBox="0 0 130 130">
+          <img v-if="foto.mug" ref="mug" class="mug es-foto" :src="foto.mug" alt="" />
+          <svg v-else ref="mug" class="mug" viewBox="0 0 130 130">
             <ellipse cx="60" cy="122" rx="48" ry="6" fill="#000" opacity="0.35" />
             <path d="M96 42c26 0 26 44 0 44" fill="none" stroke="#dfe9f2" stroke-width="10" />
             <rect x="16" y="22" width="86" height="98" rx="10" fill="#f6fbff" />
@@ -97,7 +108,8 @@
               fill="url(#relleno-nube)"
             />
           </svg>
-          <svg ref="cojin" class="cojin" viewBox="0 0 140 140">
+          <img v-if="foto.cojin" ref="cojin" class="cojin es-foto" :src="foto.cojin" alt="" />
+          <svg v-else ref="cojin" class="cojin" viewBox="0 0 140 140">
             <ellipse cx="70" cy="132" rx="56" ry="6" fill="#000" opacity="0.35" />
             <path d="M14 14q56-10 112 0 10 56 0 112-56 10-112 0-10-56 0-112z" fill="#18d9e7" />
             <path d="M26 26q44-8 88 0 8 44 0 88-44 8-88 0-8-44 0-88z" fill="#f6fbff" />
@@ -107,8 +119,12 @@
             />
           </svg>
 
-          <!-- 5. se regala -->
-          <svg ref="regalo" class="regalo" viewBox="0 0 160 170">
+          <!-- 5. se regala (la tapa es opcional: viaje/tapa.webp) -->
+          <div v-if="foto.regalo" ref="regalo" class="regalo es-foto">
+            <img class="regalo-caja" :src="foto.regalo" alt="" />
+            <img v-if="foto.tapa" ref="tapa" class="regalo-tapa" :src="foto.tapa" alt="" />
+          </div>
+          <svg v-else ref="regalo" class="regalo" viewBox="0 0 160 170">
             <defs>
               <linearGradient id="caja-regalo" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#18d9e7" />
@@ -189,6 +205,16 @@ import FondoCubos from "@/components/FondoCubos.vue";
 import Resaltado from "@/components/Resaltado.vue";
 import { enlaceWhatsApp } from "@/config";
 import { MENSAJES, PASOS } from "./datos";
+import logoAviso from "@/assets/img/innube-logo-blanco.svg";
+
+/*
+  FOTOS DEL VIAJE: objetos reales recortados (sin fondo) en src/assets/img/viaje/.
+  Nombres: idea, diseno, aviso, rollo, mug, cojin, regalo, tapa (.webp o .png).
+  Si una foto no está, se usa el dibujo de siempre: se pueden cambiar de a una.
+*/
+const archivos = import.meta.glob("@/assets/img/viaje/*.{webp,png}", { eager: true, import: "default" }) as Record<string, string>;
+const foto: Record<string, string | undefined> = {};
+for (const [ruta, url] of Object.entries(archivos)) foto[ruta.split("/").pop()!.replace(/\.(webp|png)$/, "")] = url;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -196,18 +222,18 @@ const viaje = ref<HTMLElement>();
 const cubos = ref<HTMLElement>();
 const caja = ref<HTMLElement>();
 const geronimo = ref<HTMLElement>();
-const bombillo = ref<SVGElement>();
-const dibujo = ref<SVGElement>();
+const bombillo = ref<Element>();
+const dibujo = ref<HTMLElement>();
 const trazo = ref<SVGPathElement>();
 const relleno = ref<SVGPathElement>();
 const nodos = ref<SVGGElement>();
 const aviso = ref<HTMLElement>();
 const luz = ref<HTMLElement>();
 const rollo = ref<HTMLElement>();
-const mug = ref<SVGElement>();
-const cojin = ref<SVGElement>();
-const regalo = ref<SVGElement>();
-const tapa = ref<SVGGElement>();
+const mug = ref<Element>();
+const cojin = ref<Element>();
+const regalo = ref<Element>();
+const tapa = ref<Element>();
 const chispas = ref<HTMLElement[]>([]);
 
 const actual = ref(0);
@@ -295,7 +321,8 @@ onMounted(() => {
     tl.to(mug.value!, { x: () => ancho() * 0.2, y: () => ancho() * 0.05, scale: 0.3, autoAlpha: 0 }, 4)
       .to(cojin.value!, { x: () => -ancho() * 0.18, y: () => ancho() * 0.05, scale: 0.3, autoAlpha: 0 }, 4)
       .fromTo(regalo.value!, { autoAlpha: 0, y: () => ancho() * 0.12, scale: 0.8 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.4, immediateRender: false }, 4.15)
-      .fromTo(tapa.value!, { y: -70, rotate: -14, transformOrigin: "50% 100%" }, { y: 0, rotate: 0, duration: 0.4, ease: "bounce.out", immediateRender: false }, 4.3);
+    if (tapa.value)
+      tl.fromTo(tapa.value, { y: -70, rotate: -14, transformOrigin: "50% 100%" }, { y: 0, rotate: 0, duration: 0.4, ease: "bounce.out", immediateRender: false }, 4.3);
 
     // 5 → 6: llega a ti, Gerónimo vuelve y celebra
     tl.to(geronimo.value!, { x: () => -ancho() * 0.12, y: 0, scale: 0.82 }, 5)
@@ -382,7 +409,40 @@ onBeforeUnmount(() => ctx?.revert());
   left: 8%;
   top: 22%;
   width: 84%;
+}
+
+.dibujo-svg {
+  position: relative;
+  display: block;
+  width: 100%;
   overflow: visible;
+}
+
+/* con foto: la tableta real detrás y el logo se dibuja sobre su pantalla */
+.dibujo.con-foto .dibujo-svg {
+  width: 62%;
+  margin: 14% auto 0;
+}
+
+.tableta {
+  position: absolute;
+  left: -8%;
+  top: -14%;
+  width: 116%;
+  max-width: none;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.28));
+}
+
+/* fotos recortadas: sombra suave para que "floten" */
+.es-foto {
+  height: auto;
+  filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.25));
+}
+
+.bombillo.es-foto {
+  width: 22%;
+  left: 39%;
+  filter: drop-shadow(0 0 26px rgba(255, 214, 90, 0.8));
 }
 
 .trazo {
@@ -442,6 +502,53 @@ onBeforeUnmount(() => ctx?.revert());
   font-size: clamp(0.9rem, 4.4vw, 1.5rem);
   letter-spacing: 0.3em;
   color: var(--blanco);
+}
+
+.aviso.con-foto {
+  border: 0;
+  background: none;
+}
+
+.aviso-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.aviso-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34%;
+  translate: -50% -50%;
+}
+
+.aviso.con-foto .luz {
+  inset: 10% 6%;
+  border: 0;
+  box-shadow: 0 0 70px 10px rgba(24, 217, 231, 0.55);
+}
+
+.rollo.es-foto {
+  width: 12%;
+  height: auto;
+  top: 10%;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.regalo.es-foto .regalo-caja {
+  width: 100%;
+}
+
+.regalo-tapa {
+  position: absolute;
+  left: -4%;
+  top: -10%;
+  width: 108%;
 }
 
 .rollo {
