@@ -52,6 +52,7 @@
           <h3>Plan Institucional</h3>
           <p class="precio">{{ INSTITUCIONAL.precio }} <small>COP</small></p>
           <p class="texto">{{ INSTITUCIONAL.texto }}</p>
+          <p class="nota">{{ INSTITUCIONAL.nota }}</p>
           <a
             :href="enlaceWhatsApp('¡Hola Innube! Quiero cotizar el plan Institucional para un evento de colegio 🎓')"
             target="_blank"
@@ -270,9 +271,15 @@ import IconoWhatsApp from "@/components/IconoWhatsApp.vue";
 }
 
 .institucional .texto {
-  flex: 1;
-  margin: 12px 0 20px;
+  margin: 12px 0 8px;
   font-size: 0.92rem;
+  color: var(--texto-suave);
+}
+
+.institucional .nota {
+  flex: 1;
+  margin: 0 0 20px;
+  font-size: 0.8rem;
   color: var(--texto-suave);
 }
 

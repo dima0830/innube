@@ -23,7 +23,7 @@
 
       <div class="abanico" aria-label="Algunas de nuestras invitaciones">
         <a
-          v-for="(t, i) in TARJETAS"
+          v-for="(t, i) in TARJETAS.slice(0, 4)"
           :key="t.id"
           :href="`#tarjeta-${t.id}`"
           class="abanico-celular"

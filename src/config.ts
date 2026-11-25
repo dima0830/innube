@@ -7,6 +7,8 @@ import xv from "@/assets/img/tarjeta-xv.webp";
 import boda from "@/assets/img/tarjeta-boda.webp";
 import comunion from "@/assets/img/tarjeta-comunion.webp";
 import bautizo from "@/assets/img/tarjeta-bautizo.webp";
+import grado from "@/assets/img/tarjeta-grado.webp";
+import regalo from "@/assets/img/tarjeta-regalo.webp";
 
 /* WhatsApp de Innube (con indicativo, sin espacios ni +) */
 export const WHATSAPP = "573023798490";
@@ -69,6 +71,26 @@ export const TARJETAS: Tarjeta[] = [
     imagen: bautizo,
     color: "#9fb08d",
     destacados: ["Arco dorado en la portada", "Ruta de la iglesia a la fiesta", "Carrusel de fotos"],
+  },
+  {
+    id: "grado",
+    tipo: "Grado · Plan Institucional",
+    titulo: "Graduación del Instituto Moderno Americano",
+    frase: "Con el logo del colegio y un enlace para la familia de cada graduando: la invitación llega con su nombre.",
+    url: "https://ima.innube.online/",
+    imagen: grado,
+    color: "#2a4b8d",
+    destacados: ["Enlace con el nombre de cada graduando", "Herramienta de envío por WhatsApp", "Música de ceremonia"],
+  },
+  {
+    id: "regalo",
+    tipo: "Tarjeta Regalo",
+    titulo: "Los 40 de Caro",
+    frase: "Un regalo que se abre en el celular: sus fotos, su canción, deseos que aparecen palabra por palabra y los mensajes de la familia.",
+    url: "https://dima0830.github.io/cumple40/",
+    imagen: regalo,
+    color: "#d9a0a8",
+    destacados: ["Regalo que se abre con su nombre", "Página secreta para la familia", "Desde $60.000"],
   },
 ];
 
@@ -136,13 +158,10 @@ export const PLANES: Plan[] = [
 
 export const ADICIONALES: { nombre: string; precio: string }[] = [
   { nombre: "QR de entrada y control en la puerta", precio: "$80.000" },
-  { nombre: "Soporte en vivo el día del evento", precio: "$80.000" },
   { nombre: "Álbum de recuerdo (solo Premium)", precio: "$60.000" },
   { nombre: "Trivia de la pareja o la quinceañera", precio: "$60.000" },
   { nombre: "Libro de firmas digital", precio: "$50.000" },
-  { nombre: "Video de entrada o de los anfitriones", precio: "$50.000" },
   { nombre: "Asignación de mesas", precio: "$50.000" },
-  { nombre: "Transmisión en vivo", precio: "$50.000" },
   { nombre: "Recordatorios por WhatsApp", precio: "$40.000" },
   { nombre: "Dirección propia, tunombre.innube.online (incluida en Premium)", precio: "$25.000" },
   { nombre: "Peticiones de canciones para el DJ", precio: "$30.000" },
@@ -151,5 +170,6 @@ export const ADICIONALES: { nombre: string; precio: string }[] = [
 
 export const INSTITUCIONAL = {
   precio: "$350.000",
-  texto: "Grados y eventos de colegios: invitación con el logo de la institución y hasta 50 enlaces personalizados (enlace adicional $3.000).",
+  texto: "Grados y eventos de colegios: invitación con el logo de la institución y un enlace personalizado para la familia de cada estudiante.*",
+  nota: "* Incluye hasta 100 enlaces. Enlace adicional: $1.200.",
 };
