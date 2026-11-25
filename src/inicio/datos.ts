@@ -73,6 +73,7 @@ export type Trabajo = {
   detalle: string;
   foto?: string;
   alto?: boolean; // foto vertical
+  ejemplo?: boolean; // foto de referencia (generada), no del trabajo real: se marca "Ejemplo"
 };
 
 export type Linea = { id: string; nombre: string; trabajos: Trabajo[] };

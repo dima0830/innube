@@ -298,3 +298,9 @@ a {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* bloquea el scroll de la página mientras hay una ventana abierta (portafolio) */
+html.sin-scroll,
+html.sin-scroll body {
+  overflow: hidden;
+}
