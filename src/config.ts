@@ -45,7 +45,7 @@ export const TARJETAS: Tarjeta[] = [
     tipo: "Matrimonio",
     titulo: "La boda de Andrea & Juan Carlos",
     frase: "Romántica y floral, con su historia en fotos, código de vestimenta y lluvia de sobres.",
-    url: "https://dima0830.github.io/boda/",
+    url: "https://dima0830.github.io/boda/", // pasar a https://andreayjuan.innube.online/ cuando exista en el DNS
     imagen: boda,
     color: "#c98e80",
     destacados: ["Foto de la pareja de portada", "Música de fondo", "Galería y confirmación"],
@@ -123,7 +123,8 @@ export const PLANES: Plan[] = [
       "Todo lo de la Básica, más:",
       "Panel privado de confirmados en tiempo real",
       "Fotos de los invitados en vivo y pantalla gigante",
-      "Enlace personalizado por invitado, con nombre y cupos",
+      "Hasta 70 enlaces a nombre de cada invitado, con sus pases (extra: $3.000 c/u)",
+      "Entrada personalizada: las puertas se abren con el nombre del invitado, y botón para guardar su invitación",
       "Vista previa personalizada al compartir en WhatsApp",
       "Galería de fotos ilimitada",
       "Código de vestimenta e itinerario",
@@ -144,7 +145,6 @@ export const ADICIONALES: { nombre: string; precio: string }[] = [
   { nombre: "Transmisión en vivo", precio: "$50.000" },
   { nombre: "Recordatorios por WhatsApp", precio: "$40.000" },
   { nombre: "Dirección propia, tunombre.innube.online (incluida en Premium)", precio: "$25.000" },
-  { nombre: "Tarjeta en línea más tiempo (cada 3 meses extra)", precio: "$15.000" },
   { nombre: "Peticiones de canciones para el DJ", precio: "$30.000" },
   { nombre: "Entrega urgente (24 a 48 h)", precio: "+30%" },
 ];

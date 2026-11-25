@@ -3,8 +3,8 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
-  // en GitHub Pages la página vive en /innube/
-  base: process.env.GITHUB_ACTIONS === "true" ? "/innube/" : "/",
+  // publicada en la raíz del dominio propio https://innube.online/ (public/CNAME)
+  base: "/",
   plugins: [vue()],
   resolve: {
     alias: {
